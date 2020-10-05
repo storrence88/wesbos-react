@@ -1,12 +1,12 @@
 import React, { useRef } from 'react';
 import { getFunName } from '../helpers';
 
-const StorePicker = () => {
+const StorePicker = (props) => {
   const inputVal = useRef(null);
   const goToStore = (event) => {
     event.preventDefault();
-    console.log(inputVal.current.value);
-    console.log('Going to store!');
+    const storeName = inputVal.current.value;
+    props.history.push(`/store/${storeName}`);
   };
 
   return (
